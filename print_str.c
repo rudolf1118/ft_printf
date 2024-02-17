@@ -2,6 +2,8 @@
 
 int print_str(char *str)
 {
+    int index;
+
     ft_putstr_fd(str, 1);
-    return (0);
+    return((int) ft_strlen(str));
 }

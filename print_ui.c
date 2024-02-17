@@ -1,6 +1,6 @@
 #include "printf.h"
 
-static int	count(unsigned int num)
+unsigned int	count(unsigned int num)
 {
 	unsigned int	counter;
 
@@ -13,7 +13,7 @@ static int	count(unsigned int num)
 	return (counter);
 }
 
-static int	tens(int counter)
+int	tens(int counter)
 {
 	unsigned int	ten;
 
@@ -26,30 +26,24 @@ static int	tens(int counter)
 	return (ten);
 }
 
-static int	checker(unsigned int n)
-{
-	unsigned int	max;
-
-	max = 4294967295;
-	if (n < 0)
-		print_ui(max - n + 1);
-}
-
 int	print_ui(unsigned int n)
 {
 	int len;
 	int num;
 	int ten;
-	char res;
+    unsigned int result;
 
+    result = n;
 	len = count(n);
 	ten = tens(len);
+    if (n < 0)
+        print_ui(4294967295 - n + 1);
 	while (ten != 0)
 	{
 		num = n / ten;
-		res = num + '0';
 		ft_putchar_fd(num + '0', 1);
 		n = n - num * ten;
 		ten /= 10;
 	}
+    return (count(result));
 }
