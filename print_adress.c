@@ -1,10 +1,7 @@
 #include "printf.h"
-/*void	ft_putchar_fd(char c, int fd)
+
+int hex_len (unsigned long long n)
 {
-	write(fd, &c, 1);
-}
-*/
-int hex_len (unsigned int n) {
     int count;
 
     count = 0;
@@ -16,7 +13,7 @@ int hex_len (unsigned int n) {
     return (count);
 }
 
-void put_hex (unsigned int n, char format)
+void put_hex (unsigned long long n, char format)
 {
     if (n >= 16)
     {
@@ -31,17 +28,27 @@ void put_hex (unsigned int n, char format)
         ft_putchar_fd((n + 7) + '0', 1);
 }
 
-int print_hexlow(unsigned int n, char format) {
+int print_heximal(unsigned long long n, char format)
+{
     put_hex(n, format);
     return (hex_len(n));
 }
+int print_adress (void *ad)
+{
+    unsigned long long result;
 
-/*
-#include <stdio.h>
+    result = (unsigned long long)ad;
+    ft_putstr_fd("0x", 1);
+    return(print_heximal(result, 'x'));
+}
+
+/*#include <stdio.h>
 int main ()
 {
-    print_hexlow(37123812, 'X');
-    printf("\n");
-    printf("%d",hex_len(37123812));
-}
- */
+    char *x = "hello,";
+    int y = print_adress(x);
+    printf("%c",'\n');
+    printf("%d", y);
+    printf("%c",'\n');
+    printf("%p", x);
+} */
