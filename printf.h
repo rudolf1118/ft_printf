@@ -10,4 +10,5 @@ int print_hex(unsigned int n, char format);
 int	print_int(int num);
 int	print_decimal(int num);
 int	print_ui(unsigned int n);
+int	ft_printf(const char *input, ...);
 #endif // end of PRINTF_H

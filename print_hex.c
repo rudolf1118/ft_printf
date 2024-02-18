@@ -4,7 +4,7 @@
 	write(fd, &c, 1);
 }
 */
-int hex_len (unsigned int n) {
+int hex_length(unsigned int n) {
     int count;
 
     count = 0;
@@ -16,12 +16,12 @@ int hex_len (unsigned int n) {
     return (count);
 }
 
-void put_hex (unsigned int n, char format)
+void put_heximal(unsigned int n, char format)
 {
     if (n >= 16)
     {
-        put_hex(n / 16, format);
-        put_hex(n % 16, format);
+        put_heximal(n / 16, format);
+        put_heximal(n % 16, format);
     }
     else if (n <= 9)
         ft_putchar_fd(n + '0',1);
@@ -33,8 +33,10 @@ void put_hex (unsigned int n, char format)
 
 int print_hex(unsigned int n, char format)
 {
-    put_hex(n, format);
-    return (hex_len(n));
+    put_heximal(n, format);
+    if (n == 0)
+        return (hex_length(n) + 1);
+    return (hex_length(n));
 }
 
 /*

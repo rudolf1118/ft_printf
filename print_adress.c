@@ -31,7 +31,9 @@ void put_hex (unsigned long long n, char format)
 int print_heximal(unsigned long long n, char format)
 {
     put_hex(n, format);
-    return (hex_len(n));
+    if ( n == 0)
+        return (hex_len(n) + 3);
+    return (hex_len(n) + 2);
 }
 int print_adress (void *ad)
 {

@@ -1,6 +1,6 @@
 #include "printf.h"
 
-unsigned int	count(unsigned int num)
+unsigned int	counters(unsigned int num)
 {
 	unsigned int	counter;
 
@@ -13,7 +13,7 @@ unsigned int	count(unsigned int num)
 	return (counter);
 }
 
-int	tens(int counter)
+int	ten(int counter)
 {
 	unsigned int	ten;
 
@@ -30,20 +30,22 @@ int	print_ui(unsigned int n)
 {
 	int len;
 	int num;
-	int ten;
+	int tens;
     unsigned int result;
 
     result = n;
-	len = count(n);
-	ten = tens(len);
+	len = counters(n);
+	tens = ten(len);
     if (n < 0)
         print_ui(4294967295 - n + 1);
-	while (ten != 0)
+	while (tens != 0)
 	{
-		num = n / ten;
+		num = n / tens;
 		ft_putchar_fd(num + '0', 1);
-		n = n - num * ten;
-		ten /= 10;
+		n = n - num * tens;
+		tens /= 10;
 	}
-    return (count(result));
+    if (result == 0)
+        return (counters(result) + 1);
+    return (counters(result));
 }

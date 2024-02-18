@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SRC = print_adress.c print_char.c print_decimal.c print_hex.c print_int.c print_str.c print_ui.c ft_printf.c
+SRC = print_adress.c print_char.c print_decimal.c print_hex.c print_int.c print_str.c print_ui.c ft_printf.c main.c
 OBJ = $(SRC:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror
@@ -9,6 +9,8 @@ HEADER = printf.h
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER)
+	make -C ./libft
+	cp ./libft/libft.a $(NAME)
 	$(ARCHIVE) $(NAME) $(OBJ)
 
 %.o : %.c
@@ -16,9 +18,11 @@ $(NAME) : $(OBJ) $(HEADER)
 
 clean :
 	rm -rf $(OBJ)
+	make clean -C ./libft
 
 fclean : clean
 	rm -rf $(NAME)
+	make fclean -C ./libft
 
 re : fclean all
 

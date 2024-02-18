@@ -2,6 +2,11 @@
 
 int print_str(char *str)
 {
-    ft_putstr_fd(str, 1);
+    if (!str)
+    {
+        ft_putstr_fd("(null)", 1);
+        return (6);
+    }
+        ft_putstr_fd(str, 1);
     return((int) ft_strlen(str));
 }

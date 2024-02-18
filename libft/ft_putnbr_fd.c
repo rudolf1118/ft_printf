@@ -51,9 +51,8 @@ int	ft_putnbr_fd(int n, int fd)
 	int		len;
 	int		num;
 	int		ten;
-	char	res;
     int result;
-
+    char res;
     result = n;
 
 	if (n == -2147483648)
@@ -68,13 +67,13 @@ int	ft_putnbr_fd(int n, int fd)
 	while (ten != 0)
 	{
 		num = n / ten;
-		res = num + '0';
-		ft_putchar_fd(num + '0', fd);
+        res = num + '0';
+		ft_putchar_fd(res, fd);
 		n = n - num * ten;
 		ten /= 10;
 	}
 
-    if (result < 0)
+    if (result < 0 || result == 0)
         return (count((result * -1) ) + 1);
     return (count(result));
 }
