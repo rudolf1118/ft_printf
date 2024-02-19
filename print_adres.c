@@ -1,6 +1,6 @@
-#include "printf.h"
+#include "ft_printf.h"
 
-int hex_len (unsigned long long n)
+int hex_len(unsigned long long n)
 {
     int count;
 

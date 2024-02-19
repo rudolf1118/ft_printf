@@ -1,9 +1,5 @@
-#include "printf.h"
-/*void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-*/
+#include "ft_printf.h"
+
 int hex_length(unsigned int n) {
     int count;
 
@@ -38,13 +34,3 @@ int print_hex(unsigned int n, char format)
         return (hex_length(n) + 1);
     return (hex_length(n));
 }
-
-/*
-#include <stdio.h>
-int main ()
-{
-    print_hexlow(37123812, 'X');
-    printf("\n");
-    printf("%d",hex_len(37123812));
-}
- */

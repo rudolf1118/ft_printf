@@ -1,7 +1,6 @@
-#include "printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
+
 int main ()
 {
-    ft_printf("%");
-    printf("%c",'\n');
+    ft_printf("%%%");
 }
