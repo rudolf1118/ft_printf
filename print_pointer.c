@@ -39,7 +39,7 @@ int print_adress (void *ad)
 {
     unsigned long long result;
 
-    result = (unsigned long long)ad;
+    result = (unsigned long long) ad;
     ft_putchar_fd('0',1);
     ft_putchar_fd('x',1);
     return(print_heximal(result, 'x'));
