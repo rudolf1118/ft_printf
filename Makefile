@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SRC =  ft_printf.c print_character.c print_decimal.c print_heximal.c print_integer.c  print_adres.c print_string.c print_uint.c
+SRC =  ft_printf.c print_string.c print_character.c print_decimal.c print_heximal.c print_integer.c  print_pointer.c print_uint.c
 OBJ = $(SRC:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror

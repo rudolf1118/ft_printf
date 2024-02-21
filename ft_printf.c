@@ -1,9 +1,14 @@
 #include "ft_printf.h"
 
-
-int checkerforpointer (va_list args)
-{
-    return (print_adress(va_arg(args, void *)));
+int is_charset(char c) {
+    char *str;
+    str = "scdiuxXp";
+    while (*str) {
+        if (c == *str)
+            return (1);
+        str++;
+    }
+    return (0);
 }
 
 int check_flag(char input, va_list args)
@@ -12,9 +17,7 @@ int check_flag(char input, va_list args)
 
     len = 0;
     if (input == 'p')
-       len += checkerforpointer(args);
-    else if (input == '%')
-        len += print_char('%');
+       len += print_adress(va_arg(args, void *));
     else if (input == 'c')
         len += print_char(va_arg(args, int));
     else if (input == 'd')
@@ -25,7 +28,7 @@ int check_flag(char input, va_list args)
         len += print_ui(va_arg(args, unsigned int));
     else if (input == 'x')
         len += print_hex(va_arg(args, unsigned int), 'x');
-    else if (input == 'X')
+    else if (input == 'X' )
         len += print_hex(va_arg(args, unsigned int), 'X');
     else if (input == 's')
         len += print_str(va_arg(args, char *));
@@ -39,14 +42,17 @@ int    ft_printf(const char *input, ...)
 
     len = 0;
     va_start(args, input);
-    if (*input == '%' && *(input + 1) == '\0')
-        return (0);
     while (*input)
     {
         if (*input == '%')
         {
-            len += check_flag(*(input + 1), args);
             input++;
+            if (*input == '%')
+                len += print_char('%');
+            else if (is_charset(*input))
+                len += check_flag(*input, args);
+            else if (*input == '\0')
+                break ;
         }
         else
             len += print_char(*input);

@@ -19,6 +19,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 int				    ft_putnbr_fd(int n, int fd);
-size_t	            ft_strlen(const char *arg);
+int	            ft_strlen(const char *arg);
 char	            *ft_strchr(const char *s, int c);
 #endif // LIBFT_LIBFT_H

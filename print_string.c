@@ -2,8 +2,8 @@
 
 int print_str(char *str)
 {
-    if (!str)
+    if (!str) {
         str = "(null)";
-    ft_putstr_fd(str, 1);
-    return ((int)ft_strlen(str));
+    }
+    return (write(1, str, ft_strlen(str)));
 }
