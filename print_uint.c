@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_uint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/22 17:17:24 by rharutyu          #+#    #+#             */
+/*   Updated: 2024/02/22 17:17:36 by rharutyu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 unsigned int	counters(unsigned int num)
@@ -28,16 +40,16 @@ int	ten(int counter)
 
 int	print_ui(unsigned int n)
 {
-	int len;
-	int num;
-	int tens;
-    unsigned int result;
+	int				len;
+	int				num;
+	int				tens;
+	unsigned int	result;
 
-    result = n;
+	result = n;
 	len = counters(n);
 	tens = ten(len);
-    if (n < 0)
-        print_ui(4294967295 - n + 1);
+	if (n < 0)
+		print_ui(4294967295 - n + 1);
 	while (tens != 0)
 	{
 		num = n / tens;
@@ -45,7 +57,7 @@ int	print_ui(unsigned int n)
 		n = n - num * tens;
 		tens /= 10;
 	}
-    if (result == 0)
-        return (counters(result) + 1);
-    return (counters(result));
+	if (result == 0)
+		return (counters(result) + 1);
+	return (counters(result));
 }

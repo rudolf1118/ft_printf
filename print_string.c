@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_string.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/22 17:16:56 by rharutyu          #+#    #+#             */
+/*   Updated: 2024/02/22 17:16:57 by rharutyu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int print_str(char *str)
+int	print_str(char *str)
 {
-    if (!str) {
-        str = "(null)";
-    }
-    return (write(1, str, ft_strlen(str)));
+	if (!str)
+		str = "(null)";
+	return (write(1, str, ft_strlen(str)));
 }

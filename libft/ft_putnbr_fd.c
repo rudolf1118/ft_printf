@@ -46,15 +46,22 @@ int	checker(int n, int fd)
 	return (n);
 }
 
+int	resulter(int result)
+{
+	if (result < 0 || result == 0)
+		return (count((result * -1)) + 1);
+	return (count(result));
+}
+
 int	ft_putnbr_fd(int n, int fd)
 {
 	int		len;
 	int		num;
 	int		ten;
-    int result;
-    char res;
-    result = n;
+	int		result;
+	char	res;
 
+	result = n;
 	if (n == -2147483648)
 		n = checker(n, fd);
 	else if (n < 0)
@@ -67,13 +74,10 @@ int	ft_putnbr_fd(int n, int fd)
 	while (ten != 0)
 	{
 		num = n / ten;
-        res = num + '0';
+		res = num + '0';
 		ft_putchar_fd(res, fd);
 		n = n - num * ten;
 		ten /= 10;
 	}
-
-    if (result < 0 || result == 0)
-        return (count((result * -1) ) + 1);
-    return (count(result));
+	return (resulter(result));
 }

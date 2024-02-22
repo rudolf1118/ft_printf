@@ -12,13 +12,14 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putendl_fd(char *s, int fd);
-int				    ft_putnbr_fd(int n, int fd);
-int	            ft_strlen(const char *arg);
-char	            *ft_strchr(const char *s, int c);
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_strlen(const char *arg);
+char	*ft_strchr(const char *s, int c);
 #endif // LIBFT_LIBFT_H
